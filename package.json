@@ -1,0 +1,35 @@
+{
+  "name": "storage-adapter",
+  "version": "1.0.0",
+  "description": "An adapter to work with localStorage and sessionStorage without different libs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run lint && npm run test && npm run docs",
+    "docs": "npx jsdoc2md *.js > ./docs/README.md",
+    "lint": "eslint --ext .js ./",
+    "fix": "eslint --ext .js ./ --fix",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusBNAguiar/storage-adapter.git"
+  },
+  "keywords": [
+    "storage",
+    "localStorage",
+    "local",
+    "storage",
+    "session",
+    "storage",
+    "sessionStorage"
+  ],
+  "author": "MatheusBNAguiar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatheusBNAguiar/storage-adapter/issues"
+  },
+  "homepage": "https://github.com/MatheusBNAguiar/storage-adapter#readme",
+  "devDependencies": {
+    "eslint": "^5.14.1"
+  }
+}
