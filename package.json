@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run lint && npm run docs",
-    "docs": "npx jsdoc2md *.js > ./docs/doc.md",
+    "docs": "npx jsdoc2md -f *.js  > ./docs/doc.md",
     "lint": "eslint --ext .js ./",
     "fix": "eslint --ext .js ./ --fix",
     "test": "jest"
