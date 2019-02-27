@@ -76,16 +76,16 @@ function Storage(prefix = '') {
 	};
 
 	/**
-     * Remove data from storage
-     * @param { Token } token
-     * @param { StorageLocation } storageLocation
-     */
+    * Remove data from storage
+    * @param { Token } token
+    * @param { StorageLocation } storageLocation
+    */
 	const removeData = (token, storageLocation = localStorage) => removeByLabel(`${prefix}_${token}`, storageLocation);
 
 	/**
-     * Clean all data containing the set prefix
-     * @param { StorageLocation } storageLocation
-     */
+    * Clean all data containing the set prefix
+    * @param { StorageLocation } storageLocation
+    */
 	const cleanData = (storageLocation = localStorage) => {
 		const prefixRegex = new RegExp(`^${prefix}`, 'gi');
 		Object.keys(storageLocation).forEach((key) => {
@@ -96,56 +96,57 @@ function Storage(prefix = '') {
 	};
 
 	/**
-     * Functions abstractions
+    * Functions abstractions
     */
 
 	/**
-     * Get data on localStorage
-     * @param { Token } token
-     * @returns { DataValue }
-     */
+    * Get data on localStorage
+    * @param { Token } token
+    * @returns { DataValue }
+    */
 	const get = token => getData(token);
 
 	/**
-     * Get data on sessionStorage
-     * @param { Token } token
-     * @returns { DataValue }
-     */
+    * Get data on sessionStorage
+    * @param { Token } token
+    * @returns { DataValue }
+    */
 	const getOnSession = token => getData(token, sessionStorage);
 
 	/**
-     * Set data on localStorage
-     * @param { Token } token
-     * @param { DataValue } value
-     */
+    * Set data on localStorage
+    * @param { Token } token
+    * @param { DataValue } value
+    */
 	const set = (token, value) => setData(token, value);
 
 	/**
-     * Set data on sessionStorage
-     * @param { Token } token
-     * @param { DataValue } value
-     */
+    * Set data on sessionStorage
+    * @param { Token } token
+    * @param { DataValue } value
+    */
 	const setOnSession = (token, value) => setData(token, value, sessionStorage);
 
 	/**
-     * Remove data on localStorage
-     * @param { Token } token
-     */
+    * Remove data on localStorage
+    * @param { Token } token
+    */
 	const remove = token => removeData(token);
 	/**
-     * Remove data on sessionStorage
-     * @param { Token } token
-     */
+    * Remove data on sessionStorage
+    * @param { Token } token
+    */
 	const removeOnSession = token => removeData(token, sessionStorage);
 
 	/**
-     * Clean data on localStorage
-     */
+    * Clean data on localStorage
+    */
 	const clean = () => cleanData();
 
 	/**
     * Clean data on localStorage
     */
+
 	const cleanSession = () => cleanData(sessionStorage);
 
 	return {
