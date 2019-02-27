@@ -24,10 +24,46 @@
  */
 function Storage(prefix = '') {
 	const { localStorage, sessionStorage } = window.top || window;
+	const expirationTimeLabel = 'storageExpirationTime';
 
 	/**
      * Auxiliar functions
     */
+
+	/**
+     * Get the value on milissecond of the expiration time of certain data
+     * @private
+     * @param { Number } hours How many hours should the data long
+     * @returns { Number }
+     */
+	const getExpirationTime = (hours = 4) => {
+		const expirationTime = hours * 60 * 60 * 1000;
+		const actualTime = new Date().getTime();
+		return actualTime + expirationTime;
+	};
+
+	/**
+     * Check if the data inserted is of the data with expiration time
+     * @private
+     * @param { DataValue } data
+     * @returns { Boolean }
+     */
+	const isDataWithExpiration = data => !!(data && data[expirationTimeLabel]);
+
+	/**
+     * Check if data has expired
+     * @private
+     * @param { DataValue } data
+     * @returns { Boolean }
+     */
+	const hasDataExpired = (data) => {
+		const expirationTime = data[expirationTimeLabel];
+		const actualTime = new Date().getTime();
+		if (actualTime <= expirationTime) {
+			return true;
+		}
+		return false;
+	};
 
 	/**
      * Build the entire label
@@ -47,7 +83,7 @@ function Storage(prefix = '') {
 
 	/**
      * Primary functions
-    */
+     */
 
 	/**
      * Get the data stored, parsing it, or not, using JSON.parse
@@ -58,7 +94,14 @@ function Storage(prefix = '') {
 	const getData = (token, storageLocation = localStorage) => {
 		const tokenData = storageLocation.getItem(buildLabel(token));
 		try {
-			return JSON.parse(tokenData);
+			const parsedData = JSON.parse(tokenData);
+			if (isDataWithExpiration(parsedData)) {
+				if (hasDataExpired(parsedData)) {
+					return null;
+				}
+				return parsedData.data;
+			}
+			return parsedData;
 		} catch (_) {
 			return tokenData;
 		}
@@ -80,83 +123,94 @@ function Storage(prefix = '') {
 	};
 
 	/**
-    * Remove data from storage
-    * @private
-    * @param { Token } token
-    * @param { StorageLocation } storageLocation
-    */
+     * Remove data from storage
+     * @private
+     * @param { Token } token
+     * @param { StorageLocation } storageLocation
+     */
 	const removeData = (token, storageLocation = localStorage) => removeByLabel(`${prefix}_${token}`, storageLocation);
 
 	/**
+     * Clean all data containing the set prefix
      * @private
-    * Clean all data containing the set prefix
-    * @param { StorageLocation } storageLocation
-    */
+     * @param { StorageLocation } storageLocation
+     */
 	const cleanData = (storageLocation = localStorage) => {
-		const prefixRegex = new RegExp(`^${prefix}`, 'gi');
 		Object.keys(storageLocation).forEach((key) => {
-			if (prefixRegex.test(key)) {
+			if (key.indexOf(prefix) === 0) {
 				removeByLabel(key, storageLocation);
 			}
 		});
 	};
 
 	/**
-    * Functions abstractions
-    */
+     * Functions abstractions
+     */
 
 	/**
-    * Get data on localStorage
-    * @param { Token } token
-    * @returns { DataValue }
-    */
+     * Get data on localStorage
+     * @param { Token } token
+     * @returns { DataValue }
+     */
 	const get = token => getData(token);
 
 	/**
-    * Get data on sessionStorage
-    * @param { Token } token
-    * @returns { DataValue }
-    */
+     * Get data on sessionStorage
+     * @param { Token } token
+     * @returns { DataValue }
+     */
 	const getOnSession = token => getData(token, sessionStorage);
 
 	/**
-    * Set data on localStorage
-    * @param { Token } token
-    * @param { DataValue } value
-    */
+     * Set data on localStorage
+     * @param { Token } token
+     * @param { DataValue } value
+     */
 	const set = (token, value) => setData(token, value);
 
 	/**
-    * Set data on sessionStorage
-    * @param { Token } token
-    * @param { DataValue } value
-    */
+     * Set data on localStorage with an expiration date
+     * @param { Token } token
+     * @param { DataValue } data
+     * @param { Number } hours How many hours should the data long
+     */
+	const setWithExpiration = (token, data, hours = 4) => {
+		const value = { data };
+		value[expirationTimeLabel] = getExpirationTime(hours);
+		setData(token, value);
+	};
+
+	/**
+     * Set data on sessionStorage
+     * @param { Token } token
+     * @param { DataValue } value
+     */
 	const setOnSession = (token, value) => setData(token, value, sessionStorage);
 
 	/**
-    * Remove data on localStorage
-    * @param { Token } token
-    */
+     * Remove data on localStorage
+     * @param { Token } token
+     */
 	const remove = token => removeData(token);
+
 	/**
-    * Remove data on sessionStorage
-    * @param { Token } token
-    */
+     * Remove data on sessionStorage
+     * @param { Token } token
+     */
 	const removeOnSession = token => removeData(token, sessionStorage);
 
 	/**
-    * Clean data on localStorage
-    */
+     * Clean data on localStorage
+     */
 	const clean = () => cleanData();
 
 	/**
-    * Clean data on localStorage
-    */
-
+     * Clean data on sessionStorage
+     */
 	const cleanSession = () => cleanData(sessionStorage);
 
 	return {
-		get, getOnSession, set, setOnSession, remove, removeOnSession, clean, cleanSession,
+		get, getOnSession, set, setOnSession, remove, removeOnSession, clean, cleanSession, setWithExpiration,
 	};
 }
 

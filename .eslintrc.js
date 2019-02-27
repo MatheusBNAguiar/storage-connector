@@ -12,9 +12,11 @@ module.exports = {
     "globals": {
         "__dirname": true,
         "process": true,
-        "import": true
+        "import": true,
+        "window": true
     },
     "rules": {
+        "no-param-reassign": 0,
         "max-len": 0,
         "no-tabs": 0,
         "no-console": 0,
@@ -34,5 +36,9 @@ module.exports = {
             "error",
             "always"
         ]
+    },
+    "env": {
+        "jest": true
     }
+
 };
