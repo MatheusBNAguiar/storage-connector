@@ -39,6 +39,7 @@ A storage connector, to add and abstract some funcionalities on session and loca
     * [~get(token)](#Storage..get) ⇒ [<code>DataValue</code>](#DataValue)
     * [~getOnSession(token)](#Storage..getOnSession) ⇒ [<code>DataValue</code>](#DataValue)
     * [~set(token, value)](#Storage..set)
+    * [~setWithExpiration(token, data, hours)](#Storage..setWithExpiration)
     * [~setOnSession(token, value)](#Storage..setOnSession)
     * [~remove(token)](#Storage..remove)
     * [~removeOnSession(token)](#Storage..removeOnSession)
@@ -78,6 +79,19 @@ Set data on localStorage
 | --- | --- |
 | token | [<code>Token</code>](#Token) | 
 | value | [<code>DataValue</code>](#DataValue) | 
+
+<a name="Storage..setWithExpiration"></a>
+
+### Storage~setWithExpiration(token, data, hours)
+Set data on localStorage with an expiration date
+
+**Kind**: inner method of [<code>Storage</code>](#Storage)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| token | [<code>Token</code>](#Token) |  |  |
+| data | [<code>DataValue</code>](#DataValue) |  |  |
+| hours | <code>Number</code> | <code>4</code> | How many hours should the data long |
 
 <a name="Storage..setOnSession"></a>
 
@@ -122,7 +136,7 @@ Clean data on localStorage
 <a name="Storage..cleanSession"></a>
 
 ### Storage~cleanSession()
-Clean data on localStorage
+Clean data on sessionStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
 <a name="Token"></a>
