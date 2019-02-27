@@ -36,12 +36,6 @@ A storage adapter, to add and abstract some funcionalities on session and local 
 
 
 * [Storage(prefix)](#Storage)
-    * [~buildLabel(token)](#Storage..buildLabel) ⇒ [<code>Label</code>](#Label)
-    * [~removeByLabel(label, storageLocation)](#Storage..removeByLabel)
-    * [~getData(token, storageLocation)](#Storage..getData)
-    * [~setData(token, value, storageLocation)](#Storage..setData)
-    * [~removeData(token, storageLocation)](#Storage..removeData)
-    * [~cleanData(storageLocation)](#Storage..cleanData)
     * [~get(token)](#Storage..get) ⇒ [<code>DataValue</code>](#DataValue)
     * [~getOnSession(token)](#Storage..getOnSession) ⇒ [<code>DataValue</code>](#DataValue)
     * [~set(token, value)](#Storage..set)
@@ -50,77 +44,6 @@ A storage adapter, to add and abstract some funcionalities on session and local 
     * [~removeOnSession(token)](#Storage..removeOnSession)
     * [~clean()](#Storage..clean)
     * [~cleanSession()](#Storage..cleanSession)
-
-<a name="Storage..buildLabel"></a>
-
-### Storage~buildLabel(token) ⇒ [<code>Label</code>](#Label)
-Build the entire label
-
-**Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-
-<a name="Storage..removeByLabel"></a>
-
-### Storage~removeByLabel(label, storageLocation)
-Remove values using the entire label
-
-**Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| label | [<code>Label</code>](#Label) | 
-| storageLocation | [<code>StorageLocation</code>](#StorageLocation) | 
-
-<a name="Storage..getData"></a>
-
-### Storage~getData(token, storageLocation)
-Get the data stored, parsing it, or not, using JSON.parse
-
-**Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-| storageLocation | [<code>StorageLocation</code>](#StorageLocation) | 
-
-<a name="Storage..setData"></a>
-
-### Storage~setData(token, value, storageLocation)
-Set data on storage
-
-**Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-| value | [<code>DataValue</code>](#DataValue) | 
-| storageLocation | [<code>StorageLocation</code>](#StorageLocation) | 
-
-<a name="Storage..removeData"></a>
-
-### Storage~removeData(token, storageLocation)
-Remove data from storage
-
-**Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-| storageLocation | [<code>StorageLocation</code>](#StorageLocation) | 
-
-<a name="Storage..cleanData"></a>
-
-### Storage~cleanData(storageLocation)
-Clean all data containing the set prefix
-
-**Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| storageLocation | [<code>StorageLocation</code>](#StorageLocation) | 
 
 <a name="Storage..get"></a>
 

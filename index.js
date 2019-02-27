@@ -31,6 +31,7 @@ function Storage(prefix = '') {
 
 	/**
      * Build the entire label
+     * @private
      * @param { Token } token
      * @returns { Label }
      */
@@ -38,6 +39,7 @@ function Storage(prefix = '') {
 
 	/**
      * Remove values using the entire label
+     * @private
      * @param { Label } label
      * @param { StorageLocation } storageLocation
      */
@@ -49,6 +51,7 @@ function Storage(prefix = '') {
 
 	/**
      * Get the data stored, parsing it, or not, using JSON.parse
+     * @private
      * @param { Token } token
      * @param { StorageLocation } storageLocation
      */
@@ -64,6 +67,7 @@ function Storage(prefix = '') {
 	/**
      * Set data on storage
      * @param { Token } token
+     * @private
      * @param { DataValue } value
      * @param { StorageLocation } storageLocation
      */
@@ -77,12 +81,14 @@ function Storage(prefix = '') {
 
 	/**
     * Remove data from storage
+    * @private
     * @param { Token } token
     * @param { StorageLocation } storageLocation
     */
 	const removeData = (token, storageLocation = localStorage) => removeByLabel(`${prefix}_${token}`, storageLocation);
 
 	/**
+     * @private
     * Clean all data containing the set prefix
     * @param { StorageLocation } storageLocation
     */
