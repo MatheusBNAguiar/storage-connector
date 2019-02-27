@@ -2,7 +2,7 @@
 
 <dl>
 <dt><a href="#Storage">Storage(prefix)</a></dt>
-<dd><p>A storage adapter, to add and abstract some funcionalities on session and local storage using their commom APIs to manage it</p>
+<dd><p>A storage connector, to add and abstract some funcionalities on session and local storage using their commom APIs to manage it</p>
 </dd>
 </dl>
 
@@ -26,7 +26,7 @@
 <a name="Storage"></a>
 
 ## Storage(prefix)
-A storage adapter, to add and abstract some funcionalities on session and local storage using their commom APIs to manage it
+A storage connector, to add and abstract some funcionalities on session and local storage using their commom APIs to manage it
 
 **Kind**: global function  
 

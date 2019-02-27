@@ -19,7 +19,7 @@
  */
 
 /**
- * A storage adapter, to add and abstract some funcionalities on session and local storage using their commom APIs to manage it
+ * A storage connector, to add and abstract some funcionalities on session and local storage using their commom APIs to manage it
  * @param { String } prefix The prefix used on the storage keys, every item will be started with this prefix
  */
 function Storage(prefix = '') {

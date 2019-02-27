@@ -1,7 +1,7 @@
 {
-  "name": "storage-adapter",
+  "name": "storage-connector",
   "version": "1.0.0",
-  "description": "An adapter to work with localStorage and sessionStorage without different libs",
+  "description": "An connector to work with localStorage and sessionStorage without different libs",
   "main": "index.js",
   "scripts": {
     "build": "npm run lint && npm run docs",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MatheusBNAguiar/storage-adapter.git"
+    "url": "git+https://github.com/MatheusBNAguiar/storage-connector.git"
   },
   "keywords": [
     "storage",
@@ -26,9 +26,9 @@
   "author": "MatheusBNAguiar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MatheusBNAguiar/storage-adapter/issues"
+    "url": "https://github.com/MatheusBNAguiar/storage-connector/issues"
   },
-  "homepage": "https://github.com/MatheusBNAguiar/storage-adapter#readme",
+  "homepage": "https://github.com/MatheusBNAguiar/storage-connector#readme",
   "devDependencies": {
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
