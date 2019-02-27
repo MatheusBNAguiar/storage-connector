@@ -4,7 +4,7 @@ module.exports = {
         "commonjs": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 2018
@@ -15,6 +15,8 @@ module.exports = {
         "import": true
     },
     "rules": {
+        "max-len": 0,
+        "no-tabs": 0,
         "no-console": 0,
         "indent": [
             "error",
