@@ -30,11 +30,6 @@ A storage adapter, to add and abstract some funcionalities on session and local 
 
 **Kind**: global function  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| prefix | <code>String</code> | The prefix used on the storage keys, every item will be started with this prefix |
-
-
 * [Storage(prefix)](#Storage)
     * [~get(token)](#Storage..get) ⇒ [<code>DataValue</code>](#DataValue)
     * [~getOnSession(token)](#Storage..getOnSession) ⇒ [<code>DataValue</code>](#DataValue)
@@ -51,68 +46,36 @@ A storage adapter, to add and abstract some funcionalities on session and local 
 Get data on localStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-
 <a name="Storage..getOnSession"></a>
 
 ### Storage~getOnSession(token) ⇒ [<code>DataValue</code>](#DataValue)
 Get data on sessionStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-
 <a name="Storage..set"></a>
 
 ### Storage~set(token, value)
 Set data on localStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-| value | [<code>DataValue</code>](#DataValue) | 
-
 <a name="Storage..setOnSession"></a>
 
 ### Storage~setOnSession(token, value)
 Set data on sessionStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-| value | [<code>DataValue</code>](#DataValue) | 
-
 <a name="Storage..remove"></a>
 
 ### Storage~remove(token)
 Remove data on localStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-
 <a name="Storage..removeOnSession"></a>
 
 ### Storage~removeOnSession(token)
 Remove data on sessionStorage
 
 **Kind**: inner method of [<code>Storage</code>](#Storage)  
-
-| Param | Type |
-| --- | --- |
-| token | [<code>Token</code>](#Token) | 
-
 <a name="Storage..clean"></a>
 
 ### Storage~clean()
