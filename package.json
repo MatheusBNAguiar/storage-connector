@@ -1,6 +1,6 @@
 {
   "name": "storage-connector",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An connector to work with localStorage and sessionStorage without different libs",
   "main": "index.js",
   "scripts": {
@@ -37,5 +37,7 @@
     "eslint-plugin-react": "^7.12.4",
     "jsdoc-to-markdown": "^4.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jest": "^24.1.0"
+  }
 }

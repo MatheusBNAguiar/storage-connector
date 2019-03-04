@@ -59,7 +59,7 @@ function Storage(prefix = '') {
 	const hasDataExpired = (data) => {
 		const expirationTime = data[expirationTimeLabel];
 		const actualTime = new Date().getTime();
-		if (actualTime <= expirationTime) {
+		if (actualTime >= expirationTime) {
 			return true;
 		}
 		return false;
