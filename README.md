@@ -1,5 +1,5 @@
 # Storage Connector
-An connector to work with local and session storage without different libs. The objective is to take most of the labelling process of storage and add some funcionalities.
+A connector to work with local and session storage without different libs. The objective is to take most of the labelling process of storage and add some funcionalities.
 
 ## Getting Started
 These instructions will get you through installing and using deep-getter on your project.
