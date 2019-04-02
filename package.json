@@ -1,6 +1,6 @@
 {
   "name": "storage-connector",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An connector to work with localStorage and sessionStorage without different libs",
   "main": "index.js",
   "scripts": {
